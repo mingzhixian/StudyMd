@@ -21,7 +21,7 @@ if (artUrl == null) {
 
 //获取文章markdown文件
 $.ajax({
-	url: SiteUrl + artUrl,
+	url: SiteUrl() + artUrl,
 	type: "get",
 }).done(function (output) {
 	//解析文章并填充文章名以及文章
@@ -34,7 +34,7 @@ $.ajax({
 	$("#articleBody").html(converter.makeHtml(text));
 }).fail(function (xhr, status) {
 	$.ajax({
-		url: SiteUrl + "/README.md",
+		url: SiteUrl() + "/README.md",
 		type: "get",
 	}).done(function (output) {
 		//解析文章并填充文章名以及文章
