@@ -83,7 +83,7 @@ function SetImg() {
 	$("#articleBody").find("img").each(function (i, item) {
 		var url = $(item).attr("src");
 		if (url.substring(0, 2) == "./") {
-			url = "./" + artUrl.substring(0, artUrl.lastIndexOf("/") + 1) + url.substring(2);
+			url = artUrl.substring(0, artUrl.lastIndexOf("/") + 1) + url.substring(2);
 			$(item).attr("src", url);
 		}
 	})
