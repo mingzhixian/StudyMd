@@ -39,18 +39,18 @@
 
 		//加载css文件
 		url = SiteUrl() + "/css/main.css";
-		$("head").append("<link rel='stylesheet' href='" + url + "' type='text/css'>");
+		document.write("<link rel='stylesheet' href='" + url + "' type='text/css'>")
 
 		//加载markdown样式文件
 		url = SiteUrl() + "/css/markdown.css";
-		$("head").append("<link rel='stylesheet' href='" + url + "' type='text/css'>");
+		document.write("<link rel='stylesheet' href='" + url + "' type='text/css'>");
 
 		//加载用户自定义静态文件
 		url = SiteUrl() + "/js/usr.js";
 		document.write("<script language=javascript src=" + url + "><\/script>");
 
 		url = SiteUrl() + "/css/usr.css";
-		$("head").append("<link rel='stylesheet' href='" + url + "' type='text/css'>");
+		document.write("<link rel='stylesheet' href='" + url + "' type='text/css'>");
 	</script>
 </head>
 
