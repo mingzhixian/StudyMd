@@ -6,53 +6,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Blog</title>
-	<script>
-		//按照需要修改网站标题
-		function SiteTitle() {
-			return "KicBlog";
-		}
-
-		//按照要求修改github page地址
-		function SiteUrl() {
-			return "https://mingzhixian.github.io/StudyMd";
-			//return ".";
-		}
-
-		var url;
-		//修改网站标题
-		document.getElementsByTagName("title")[0].innerText = SiteTitle();
-
-		/* //修改网站图标
-		url = SiteUrl() + "/img/icon.svg";
-		document.write("<link rel='shortcut icon' type='image/x-icon' href='" + url + "'>"); */
-
-		//加载jquery
-		url = SiteUrl() + "/js/jquery.js";
-		document.write("<script language=javascript src=" + url + "><\/script>");
-
-		//加载markdown解析js
-		url = SiteUrl() + "/js/markdown.js";
-		document.write("<script language=javascript src=" + url + "><\/script>");
-
-		//加载主js
-		url = SiteUrl() + "/js/main.js";
-		document.write("<script language=javascript src=" + url + "><\/script>");
-
-		//加载css文件
-		url = SiteUrl() + "/css/main.css";
-		document.write("<link rel='stylesheet' href='" + url + "' type='text/css'>")
-
-		//加载markdown样式文件
-		url = SiteUrl() + "/css/markdown.css";
-		document.write("<link rel='stylesheet' href='" + url + "' type='text/css'>");
-
-		//加载用户自定义静态文件
-		url = SiteUrl() + "/js/usr.js";
-		document.write("<script language=javascript src=" + url + "><\/script>");
-
-		url = SiteUrl() + "/css/usr.css";
-		document.write("<link rel='stylesheet' href='" + url + "' type='text/css'>");
-	</script>
+	<link rel='shortcut icon' type='image/x-icon' href='img/icon.svg'>
+	<script language=javascript src="./js/jquery.js"></script>
+	<script language=javascript src="./js/markdown.js"></script>
+	<script language=javascript src="./js/usr.js"></script>
+	<script language=javascript src="./js/main.js"></script>
+	<link rel='stylesheet' href='./css/main.css' type='text/css'>
+	<link rel='stylesheet' href='./css/markdown.css' type='text/css'>
+	<link rel='stylesheet' href='./css/usr.css' type='text/css'>
 </head>
 
 <body>
