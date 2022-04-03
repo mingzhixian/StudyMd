@@ -31,9 +31,10 @@ $.ajax({
 	//解析文章并填充文章名以及文章
 	var converter = new showdown.Converter();
 	if (artUrl == "./README.md") {
-		artUrl = SiteTitle
-	};
-	$("#articleTitle").html(getTitle(artUrl));
+		$("#articleTitle").html(SiteTitle());
+	} else {
+		$("#articleTitle").html(getTitle(artUrl));
+	}
 	$("#articleBody").html(converter.makeHtml(output));
 	directory();
 	SetImg();
@@ -42,12 +43,8 @@ $.ajax({
 		url: "./README.md",
 		type: "get",
 	}).done(function (output) {
-		//解析文章并填充文章名以及文章
 		var converter = new showdown.Converter();
-		if (artUrl == "./README.md") {
-			artUrl = SiteTitle
-		};
-		$("#articleTitle").html(getTitle(artUrl));
+		$("#articleTitle").html(SiteTitle());
 		$("#articleBody").html(converter.makeHtml(output));
 		directory();
 		SetImg();
