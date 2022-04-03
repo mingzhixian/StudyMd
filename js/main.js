@@ -60,12 +60,42 @@ function directory() {
 		$(item).attr("id", "p" + i);
 		$("#articleContent").append('<p class = "contentTitle"><a class = "contentTitle-' + tag + '" onclick="GoTo(\'#p' + i + '\')" >' + $(this).text() + '</a></p>');
 	});
-	$(".contentTitle-h1").css("margin-left", 0);
-	$(".contentTitle-h2").css("margin-left", 30);
-	$(".contentTitle-h3").css("margin-left", 60);
-	$(".contentTitle-h4").css("margin-left", 90);
-	$(".contentTitle-h5").css("margin-left", 120);
-	$(".contentTitle-h6").css("margin-left", 150);
+	$(".contentTitle-h1").css({
+		"margin-left": 0,
+		"font-size": 16,
+		"line-height": 24,
+		"height": 24
+	});
+	$(".contentTitle-h2").css({
+		"margin-left": 30,
+		"font-size": 13,
+		"line-height": 21,
+		"height": 21
+	});
+	$(".contentTitle-h3").css({
+		"margin-left": 60,
+		"font-size": 10,
+		"line-height": 18,
+		"height": 18
+	});
+	$(".contentTitle-h4").css({
+		"margin-left": 90,
+		"font-size": 9,
+		"line-height": 15,
+		"height": 15
+	});
+	$(".contentTitle-h5").css({
+		"margin-left": 120,
+		"font-size": 6,
+		"line-height": 12,
+		"height": 12
+	});
+	$(".contentTitle-h6").css({
+		"margin-left": 150,
+		"font-size": 3,
+		"line-height": 9,
+		"height": 9
+	});
 }
 
 //点击目录滚动到对应位置
