@@ -28,6 +28,7 @@ $.ajax({
 	};
 	$("#articleTitle").html(artUrl);
 	$("#articleBody").html(converter.makeHtml(text));
+	directory();
 }).fail(function () {
 	$.ajax({
 		url: SiteUrl() + "/README.md",
@@ -41,6 +42,7 @@ $.ajax({
 		};
 		$("#articleTitle").html(artUrl);
 		$("#articleBody").html(converter.makeHtml(text));
+		directory();
 	}).fail(function (xhr, status) {
 		console.log("error,can not find article!");
 	});
