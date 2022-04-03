@@ -5,19 +5,15 @@ function getQueryVariable(variable) {
 	for (var i = 0; i < vars.length; i++) {
 		var pair = vars[i].split("=");
 		if (pair[0] == variable) {
-			return pair[1];
+			return "/"+pair[1];
 		}
 	}
-	return ("");
+	//为空情况
+	return ("/README.md");
 }
 
 //获取文章名
 var artUrl = decodeURIComponent(getQueryVariable("art"));
-
-//为空则访问首页
-if (artUrl == null) {
-	artUrl = "/README.md";
-}
 
 //获取文章markdown文件
 $.ajax({
@@ -31,9 +27,8 @@ $.ajax({
 		artUrl = SiteTitle
 	};
 	$("#articleTitle").html(artUrl);
-	var html=converter.makeHtml(text);
-	$("#articleBody").html(html);
-}).fail(function (xhr, status) {
+	$("#articleBody").html(converter.makeHtml(text));
+}).fail(function () {
 	$.ajax({
 		url: SiteUrl() + "/README.md",
 		type: "get",
