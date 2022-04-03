@@ -31,7 +31,8 @@ $.ajax({
 		artUrl = SiteTitle
 	};
 	$("#articleTitle").html(artUrl);
-	$("#articleBody").html(converter.makeHtml(text));
+	var html=converter.makeHtml(text);
+	$("#articleBody").html(html);
 }).fail(function (xhr, status) {
 	$.ajax({
 		url: SiteUrl() + "/README.md",
