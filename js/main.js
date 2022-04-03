@@ -62,39 +62,39 @@ function directory() {
 	});
 	$(".contentTitle-h1").css({
 		"margin-left": "0px",
-		"font-size": "16px",
-		"line-height": "24px",
-		"height": "24px"
+		"font-size": "18px",
+		"line-height": "22px",
+		"height": "22px"
 	});
 	$(".contentTitle-h2").css({
 		"margin-left": "30px",
-		"font-size": "13px",
-		"line-height": "21px",
-		"height": "21px"
+		"font-size": "16px",
+		"line-height": "20px",
+		"height": "20px"
 	});
 	$(".contentTitle-h3").css({
 		"margin-left": "60px",
-		"font-size": "10px",
+		"font-size": "14px",
 		"line-height": "18px",
 		"height": "18px"
 	});
 	$(".contentTitle-h4").css({
 		"margin-left": "90px",
-		"font-size": "9px",
-		"line-height": "15px",
-		"height": "15px"
+		"font-size": "12px",
+		"line-height": "16px",
+		"height": "16px"
 	});
 	$(".contentTitle-h5").css({
 		"margin-left": "120px",
-		"font-size": "6px",
-		"line-height": "12px",
-		"height": "12px"
+		"font-size": "10px",
+		"line-height": "14px",
+		"height": "14px"
 	});
 	$(".contentTitle-h6").css({
 		"margin-left": "150px",
-		"font-size": "3px",
-		"line-height": "9px",
-		"height": "9px"
+		"font-size": "8px",
+		"line-height": "12px",
+		"height": "12px"
 	});
 }
 
