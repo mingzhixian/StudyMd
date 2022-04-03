@@ -15,6 +15,7 @@
 		//按照要求修改github page地址
 		function SiteUrl() {
 			return "https://mingzhixian.github.io/StudyMd";
+			//return ".";
 		}
 
 		var url;
@@ -29,12 +30,12 @@
 		url = SiteUrl() + "/js/jquery.js";
 		document.write("<script language=javascript src=" + url + "><\/script>");
 
-		//加载主js
-		url = SiteUrl() + "/js/main.js";
-		document.write("<script language=javascript src=" + url + "><\/script>");
-
 		//加载markdown解析js
 		url = SiteUrl() + "/js/markdown.js";
+		document.write("<script language=javascript src=" + url + "><\/script>");
+
+		//加载主js
+		url = SiteUrl() + "/js/main.js";
 		document.write("<script language=javascript src=" + url + "><\/script>");
 
 		//加载css文件
