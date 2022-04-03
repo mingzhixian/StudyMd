@@ -22,34 +22,34 @@
 		document.getElementsByTagName("title")[0].innerText = SiteTitle;
 
 		//修改网站图标
-		url = SiteUrl + "/img/icon.svg";
+		url = SiteUrl() + "/img/icon.svg";
 		document.write("<link rel='icon' href='" + url + "'>");
 
 		//加载jquery
-		url = SiteUrl + "/js/jquery.js";
+		url = SiteUrl() + "/js/jquery.js";
 		document.write("<script language=javascript src=" + url + "><\/script>");
 
 		//加载主js
-		url = SiteUrl + "/js/main.js";
+		url = SiteUrl() + "/js/main.js";
 		document.write("<script language=javascript src=" + url + "><\/script>");
 
 		//加载markdown解析js
-		url = SiteUrl + "/js/markdown.js";
+		url = SiteUrl() + "/js/markdown.js";
 		document.write("<script language=javascript src=" + url + "><\/script>");
 
 		//加载css文件
-		url = SiteUrl + "/css/main.css";
+		url = SiteUrl() + "/css/main.css";
 		$("head").append("<link rel='stylesheet' href='" + url + "' type='text/css'>");
 
 		//加载markdown样式文件
-		url = SiteUrl + "/css/markdown.css";
+		url = SiteUrl() + "/css/markdown.css";
 		$("head").append("<link rel='stylesheet' href='" + url + "' type='text/css'>");
 
 		//加载用户自定义静态文件
-		url = SiteUrl + "/js/usr.js";
+		url = SiteUrl() + "/js/usr.js";
 		document.write("<script language=javascript src=" + url + "><\/script>");
 
-		url = SiteUrl + "/css/usr.css";
+		url = SiteUrl() + "/css/usr.css";
 		$("head").append("<link rel='stylesheet' href='" + url + "' type='text/css'>");
 	</script>
 </head>
