@@ -61,40 +61,40 @@ function directory() {
 		$("#articleContent").append('<p class = "contentTitle"><a class = "contentTitle-' + tag + '" onclick="GoTo(\'#p' + i + '\')" >' + $(this).text() + '</a></p>');
 	});
 	$(".contentTitle-h1").css({
-		"margin-left": 0,
-		"font-size": 16,
-		"line-height": 24,
-		"height": 24
+		"margin-left": "0px",
+		"font-size": "16px",
+		"line-height": "24px",
+		"height": "24px"
 	});
 	$(".contentTitle-h2").css({
-		"margin-left": 30,
-		"font-size": 13,
-		"line-height": 21,
-		"height": 21
+		"margin-left": "30px",
+		"font-size": "13px",
+		"line-height": "21px",
+		"height": "21px"
 	});
 	$(".contentTitle-h3").css({
-		"margin-left": 60,
-		"font-size": 10,
-		"line-height": 18,
-		"height": 18
+		"margin-left": "60px",
+		"font-size": "10px",
+		"line-height": "18px",
+		"height": "18px"
 	});
 	$(".contentTitle-h4").css({
-		"margin-left": 90,
-		"font-size": 9,
-		"line-height": 15,
-		"height": 15
+		"margin-left": "90px",
+		"font-size": "9px",
+		"line-height": "15px",
+		"height": "15px"
 	});
 	$(".contentTitle-h5").css({
-		"margin-left": 120,
-		"font-size": 6,
-		"line-height": 12,
-		"height": 12
+		"margin-left": "120px",
+		"font-size": "6px",
+		"line-height": "12px",
+		"height": "12px"
 	});
 	$(".contentTitle-h6").css({
-		"margin-left": 150,
-		"font-size": 3,
-		"line-height": 9,
-		"height": 9
+		"margin-left": "150px",
+		"font-size": "3px",
+		"line-height": "9px",
+		"height": "9px"
 	});
 }
 
