@@ -14,7 +14,6 @@
 #articleContent {
 	width: 100%;
 	max-width: 800px;
-	border-radius: 16px;
 	margin: 20px auto;
 	padding: 20px 30px;
 }
@@ -27,7 +26,6 @@
 #articleBody {
 	width: 100%;
 	max-width: 800px;
-	border-radius: 16px;
 	margin: 20px auto 50px auto;
 	padding: 25px 30px;
 }
