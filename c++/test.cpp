@@ -1,15 +1,59 @@
-#include <stdio.h>
-#include <math.h>
+#include <iostream>
+#include <malloc.h>
 
-int a(int tmp){
-    return -tmp;
-}
-char a(char tmp){
-    return tmp+1;
-}
-int main(int argc, char const *argv[])
+using namespace std;
+
+class Line
 {
-    printf("%d,%f\n", abs(-12), fabs(-1212.32324));
-    printf("%d,,,%c\n",a(6),a('8'));
+public:
+    void setLength(double len);
+    double getLength(void);
+    Line();                // 构造函数声明
+    Line(const Line &obj); //拷贝函数声明
+    ~Line();               // 析构函数声明
+
+private:
+    double length;
+    
+};
+
+// 成员函数定义，包括构造函数
+Line::Line(void)
+{
+    cout << "创建！" << endl;
+}
+Line::Line(const Line &obj)
+{
+    length = (double *)malloc(sizeof(double));
+    *length = *(obj.length);
+    cout << "拷贝！" << endl;
+}
+Line::~Line(void)
+{
+    cout << "销毁！" << endl;
+}
+
+void Line::setLength(double len)
+{
+    *length = len;
+}
+
+double Line::getLength(void)
+{
+    return *length;
+}
+// 程序的主函数
+int main()
+{
+    Line line1;
+    // 设置长度
+    line1.setLength(6.0);
+    cout << "line1长度为：" << line1.getLength() << endl;
+    Line line2 = line1;
+    cout << "line2长度为：" << line2.getLength() << endl;
+    //修改line2
+    line2.setLength(7.0);
+    cout << "line1长度为：" << line1.getLength() << endl;
+    cout << "line2长度为：" << line2.getLength() << endl;
     return 0;
 }
