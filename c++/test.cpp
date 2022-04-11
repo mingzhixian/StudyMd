@@ -1,61 +1,44 @@
-#include <iostream>
-#include <unistd.h>
-
-using namespace std;
-
-class Line
+#include "stdio.h"
+int f1(int const *i)
 {
-public:
-    void setLength(double len);
-    double getLength(void);
-    time_t getTime(void);
-    Line();                // 构造函数声明
-    Line(const Line &obj); //拷贝函数声明
-    ~Line();               // 析构函数声明
-
-private:
-    double length;
-    time_t setTime;
-};
-
-// 成员函数定义，包括构造函数
-Line::Line(void)
-{
-    time(&setTime);
-    cout << "创建！" << endl;
+    //*i=5;会报错
+    int a=9;
+    i=&a;
+    return 1;
 }
-Line::Line(const Line &obj)
+int f2(const int *i)
 {
-    length = obj.length;
-    time(&setTime);
-    cout << "拷贝！" << endl;
+    //*i=5;会报错
+    int a=9;
+    i=&a;
+    return 1;
 }
-Line::~Line(void)
+int f3(int * const i)
 {
-    cout << "销毁！" << endl;
+    *i=5;
+    int a=9;
+    //i=&a;会报错
+    return 1;
 }
-
-void Line::setLength(double len)
+int f4(const int * const i)
 {
-    length = len;
+    //*i=5;会报错
+    int a=9;
+    //i=&a;会报错
+    return 1;
 }
-
-double Line::getLength(void)
+int f5(const int * i)
 {
-    return length;
+    int *a;
+    i=a;
+    //a=i;会报错
+    return 1;
 }
-
-time_t Line::getTime(void)
+int main(int argc, char const *argv[])
 {
-    return setTime;
-}
-// 程序的主函数
-int main()
-{
-    Line line1;
-    sleep(2);
-    Line line2 = line1;
-    cout << line1.getTime() << endl;
-    cout << line2.getTime() << endl;
+    int a = 1, b = 2;
+    int &c = a; //引用，此后无法再次修改&c为其他变量的别名
+    f1(&a);
+    printf("%d,\n",c);
     return 0;
 }
