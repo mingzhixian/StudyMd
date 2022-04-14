@@ -1,73 +1,50 @@
 #include <iostream>
-#include <malloc.h>
 
 using namespace std;
 
-class Line
+class Dot
 {
 public:
-    void setLength(double len);
-    double getLength(void);
-    Line();                         // 构造函数声明
-    Line(const Line &obj);          //拷贝函数声明
-    ~Line();                        // 析构函数声明
-    void operator=(const Line &obj) //复写赋值函数
+    int GetId() const { return id; };
+    Dot()
     {
-        if (&obj == this)
-        {
-            return;
-        }
-        else
-        {
-            delete length;
-            length = (double *)malloc(sizeof(double));
-            *length = *(obj.length);
-        }
+        id = 7;
+        cout << "dot创建！\n";
     };
 
 private:
-    double *length;
+    int id;
+};
+class Line
+{
+public:
+    Line(int i, int dot1id) : ci(i), dot1(), dot2(dot1)
+    {
+        cout << "Line创建！" << endl;
+    }
+
+    Line(const Line &obj) : ci(obj.ci), dot1(), dot2(dot1)
+    {
+        
+        cout << "Line拷贝！" << endl;
+    }
+
+    void ToString() const
+    {
+        cout << "ci:" << ci << "  dot1id:" << dot1.GetId() << "  dot2id:" << dot2.GetId() << endl;
+    }
+
+private:
+    Dot dot1, dot2;
+    const int ci;
 };
 
-// 成员函数定义，包括构造函数
-Line::Line(void)
-{
-    length = (double *)malloc(sizeof(double));
-    cout << "创建！" << endl;
-}
-Line::Line(const Line &length)
-{
-    this->length = (double *)malloc(sizeof(double));
-    *(this->length) = *(length.length);
-    cout << "拷贝！" << endl;
-}
-Line::~Line(void)
-{
-    cout << "销毁！" << endl;
-}
-
-void Line::setLength(double len)
-{
-    *length = len;
-}
-
-double Line::getLength(void)
-{
-    return *length;
-}
 // 程序的主函数
 int main()
 {
-    Line line1;
-    // 设置长度
-    line1.setLength(6.0);
-    cout << "line1长度为：" << line1.getLength() << endl;
-    Line line2;
-    line2 = line1;
-    cout << "line2长度为：" << line2.getLength() << endl;
-    //修改line2
-    line2.setLength(7.0);
-    cout << "line1长度为：" << line1.getLength() << endl;
-    cout << "line2长度为：" << line2.getLength() << endl;
+    Line line1(1, 1);
+    Line line2 = line1;
+    line1.ToString();
+    line2.ToString();
     return 0;
 }
