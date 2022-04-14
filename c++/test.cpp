@@ -1,44 +1,73 @@
-#include "stdio.h"
-int f1(int const *i)
+#include <iostream>
+#include <malloc.h>
+
+using namespace std;
+
+class Line
 {
-    //*i=5;会报错
-    int a=9;
-    i=&a;
-    return 1;
+public:
+    void setLength(double len);
+    double getLength(void);
+    Line();                         // 构造函数声明
+    Line(const Line &obj);          //拷贝函数声明
+    ~Line();                        // 析构函数声明
+    void operator=(const Line &obj) //复写赋值函数
+    {
+        if (&obj == this)
+        {
+            return;
+        }
+        else
+        {
+            delete length;
+            length = (double *)malloc(sizeof(double));
+            *length = *(obj.length);
+        }
+    };
+
+private:
+    double *length;
+};
+
+// 成员函数定义，包括构造函数
+Line::Line(void)
+{
+    length = (double *)malloc(sizeof(double));
+    cout << "创建！" << endl;
 }
-int f2(const int *i)
+Line::Line(const Line &length)
 {
-    //*i=5;会报错
-    int a=9;
-    i=&a;
-    return 1;
+    this->length = (double *)malloc(sizeof(double));
+    *(this->length) = *(length.length);
+    cout << "拷贝！" << endl;
 }
-int f3(int * const i)
+Line::~Line(void)
 {
-    *i=5;
-    int a=9;
-    //i=&a;会报错
-    return 1;
+    cout << "销毁！" << endl;
 }
-int f4(const int * const i)
+
+void Line::setLength(double len)
 {
-    //*i=5;会报错
-    int a=9;
-    //i=&a;会报错
-    return 1;
+    *length = len;
 }
-int f5(const int * i)
+
+double Line::getLength(void)
 {
-    int *a;
-    i=a;
-    //a=i;会报错
-    return 1;
+    return *length;
 }
-int main(int argc, char const *argv[])
+// 程序的主函数
+int main()
 {
-    int a = 1, b = 2;
-    int &c = a; //引用，此后无法再次修改&c为其他变量的别名
-    f1(&a);
-    printf("%d,\n",c);
+    Line line1;
+    // 设置长度
+    line1.setLength(6.0);
+    cout << "line1长度为：" << line1.getLength() << endl;
+    Line line2;
+    line2 = line1;
+    cout << "line2长度为：" << line2.getLength() << endl;
+    //修改line2
+    line2.setLength(7.0);
+    cout << "line1长度为：" << line1.getLength() << endl;
+    cout << "line2长度为：" << line2.getLength() << endl;
     return 0;
 }
