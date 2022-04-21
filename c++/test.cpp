@@ -1,28 +1,12 @@
-#include <iostream>
-using namespace std;
-
-namespace first_space
+//相当于#include <iostream>
+namespace a
 {
-    void func1()
-    {
-        cout << "命名空间1中的函数1" << endl;
-    }
-    namespace second_space
-    {
-        void func1()
-    {
-        cout << "命名空间2中的函数1" << endl;
-    }
-        void func2()
-        {
-            func1();
-            cout << "命名空间2中的函数2" << endl;
-        }
-    }
+    extern void func1();
 }
-using namespace first_space::second_space;
+//相当于using namespace std;
+using namespace a;
 int main()
 {
-    func2();
+    func1();
     return 0;
 }
