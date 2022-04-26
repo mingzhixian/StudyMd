@@ -13,6 +13,11 @@ public:
 	{
 		cout << "A的拷贝构造函数。" << endl;
 	}
+	void operator=(const A &obj)
+	{
+		age = obj.age;
+		cout << "A的重写赋值运算符。" << endl;
+	}
 
 public:
 	int age;
@@ -37,7 +42,8 @@ public:
 int main(void)
 {
 	B b1(20, 'r');
-	B b2 = b1;
+	B b2(12, 'u');
+	b2 = b1;
 	cout << "b2 name:" << b2.name << " age:" << b2.age << endl;
 	return 0;
 }
