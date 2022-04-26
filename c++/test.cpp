@@ -2,40 +2,42 @@
 
 using namespace std;
 
-class Box
+class A
 {
 public:
-	static int objectCount;
-	static const int i1 = 1;
-	// static const float i2=1.0;报错
-	static const float i2;
-	// 构造函数定义
-	Box(double l = 2.0, double b = 2.0, double h = 2.0)
+	A(int a) : age(a)
 	{
-		cout << "构造函数" << endl;
-		length = l;
-		breadth = b;
-		height = h;
-		// 每次创建对象时增加 1
-		objectCount++;
+		cout << "A的构造函数。" << endl;
 	}
-	//计算体积
-	double Volume()
+	A(const A &obj)
 	{
-		return length * breadth * height;
+		cout << "A的拷贝构造函数。" << endl;
 	}
 
-private:
-	double length;	// 长度
-	double breadth; // 宽度
-	double height;	// 高度
+public:
+	int age;
 };
 
-//定义并初始化类 Box 的静态成员
-int Box::objectCount = 0;
-const float Box::i2 = 2.0;
+class B : public A
+{
+public:
+	B(int a, char n) : A(a), name(n)
+	{
+		cout << "B的构造函数。" << endl;
+	}
+	B(const B &obj) : A(obj.age), name(obj.name)
+	{
+		cout << "B的拷贝构造函数。" << endl;
+	}
+
+public:
+	char name;
+};
 
 int main(void)
 {
+	B b1(20, 'r');
+	B b2 = b1;
+	cout << "b2 name:" << b2.name << " age:" << b2.age << endl;
 	return 0;
 }
