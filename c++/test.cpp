@@ -2,48 +2,52 @@
 
 using namespace std;
 
-class A
+// 基类1
+class People
 {
 public:
-	A(int a) : age(a)
+	People()
 	{
-		cout << "A的构造函数。" << endl;
+		cout << "创建了一个people" << endl;
 	}
-	A(const A &obj)
+	void setName(char n)
 	{
-		cout << "A的拷贝构造函数。" << endl;
+		name = n;
 	}
-	void operator=(const A &obj)
+	void setAge(int a)
 	{
-		age = obj.age;
-		cout << "A的重写赋值运算符。" << endl;
+		age = a;
 	}
-
-public:
-	int age;
-};
-
-class B : public A
-{
-public:
-	B(int a, char n) : A(a), name(n)
+	void setGrade(int g)
 	{
-		cout << "B的构造函数。" << endl;
-	}
-	B(const B &obj) : A(obj.age), name(obj.name)
-	{
-		cout << "B的拷贝构造函数。" << endl;
+		grade = g;
 	}
 
 public:
 	char name;
+	int age;
+	int grade;
+};
+
+// 基类2
+class Student : virtual public People
+{
+};
+
+// 基类3
+class Boy : virtual public People
+{
+};
+
+// 派生类
+class CollegeStudents : public Boy, public Student
+{
 };
 
 int main(void)
 {
-	B b1(20, 'r');
-	B b2(12, 'u');
-	b2 = b1;
-	cout << "b2 name:" << b2.name << " age:" << b2.age << endl;
+	CollegeStudents rui;
+	rui.setGrade(2);
+	cout << "grade:" << rui.grade << endl;
 	return 0;
 }
