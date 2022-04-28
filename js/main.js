@@ -29,7 +29,7 @@ $.ajax({
 	type: "get",
 }).done(function (output) {
 	//解析文章并填充文章名以及文章
-	var converter = new showdown.Converter();
+	var converter = new showdown.Converter({tables: true});
 	if (artUrl == "./README.md") {
 		$("#articleTitle").html(SiteTitle());
 	} else {
