@@ -5,40 +5,30 @@ using namespace std;
 // 基类1
 class A
 {
+private:
+	int i = 0;
+
 public:
-	virtual void prtA1()
+	int geti() { return i; }
+	virtual inline void prt()
 	{
-		cout << "A1" << endl;
-	}
-	virtual void prtA2()
-	{
-		cout << "A2" << endl;
+		cout << "A" << endl;
 	}
 };
 
 // 基类2
-class B
+class B : public A
 {
 public:
-	virtual void prtB()
+	inline void prt()
 	{
-		cout << "B" << endl;
+		cout << geti() << endl;
 	}
-};
-
-class C : public A, public B
-{
 };
 
 int main(void)
 {
-	C *c = new C();
-	A *a = (A *)c;
-	B *e = (B *)a;
-	// a->prtB();找不到
-	// e->prtA();找不到
-	e->prtB();
-	cout << a << endl;
-	cout << e << endl;
+	B b;
+	b.prt();
 	return 0;
 }
