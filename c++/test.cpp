@@ -29,16 +29,17 @@ class C : public A, public B
 int main(void)
 {
 	C *c = new C();
-	A *a = (C *)c;
-	B *b = (C *)c;
-	a->prtA();
+	A *a = (A *)c;
+	B *b = (B *)c;
+	A *d = dynamic_cast<A *>(b);
+	B *e = dynamic_cast<B *>(a);
 	// a->prtB();找不到
+	e->prtB();
 	// b->prtA();找不到
-	b->prtB();
-	c->prtA();
-	c->prtB();
+	d->prtA();
 	cout << a << endl;
+	cout << e << endl;
 	cout << b << endl;
-	cout << c << endl;
+	cout << d << endl;
 	return 0;
 }
