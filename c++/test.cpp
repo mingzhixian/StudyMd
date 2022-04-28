@@ -6,9 +6,13 @@ using namespace std;
 class A
 {
 public:
-	virtual void prtA()
+	virtual void prtA1()
 	{
-		cout << "A" << endl;
+		cout << "A1" << endl;
+	}
+	virtual void prtA2()
+	{
+		cout << "A2" << endl;
 	}
 };
 
@@ -30,16 +34,11 @@ int main(void)
 {
 	C *c = new C();
 	A *a = (A *)c;
-	B *b = (B *)c;
-	A *d = dynamic_cast<A *>(b);
-	B *e = dynamic_cast<B *>(a);
+	B *e = (B *)a;
 	// a->prtB();找不到
+	// e->prtA();找不到
 	e->prtB();
-	// b->prtA();找不到
-	d->prtA();
 	cout << a << endl;
 	cout << e << endl;
-	cout << b << endl;
-	cout << d << endl;
 	return 0;
 }
