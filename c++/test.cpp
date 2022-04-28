@@ -3,51 +3,32 @@
 using namespace std;
 
 // 基类1
-class People
+class A
 {
 public:
-	People()
+	virtual void prtA()
 	{
-		cout << "创建了一个people" << endl;
+		cout << "A" << endl;
 	}
-	void setName(char n)
-	{
-		name = n;
-	}
-	void setAge(int a)
-	{
-		age = a;
-	}
-	void setGrade(int g)
-	{
-		grade = g;
-	}
-
-public:
-	char name;
-	int age;
-	int grade;
 };
 
 // 基类2
-class Student : virtual public People
+class B
 {
+	virtual void prtB()
+	{
+		cout << "B" << endl;
+	}
 };
 
-// 基类3
-class Boy : virtual public People
-{
-};
-
-// 派生类
-class CollegeStudents : public Boy, public Student
+class C : public A, public B
 {
 };
 
 int main(void)
 {
-	CollegeStudents rui;
-	rui.setGrade(2);
-	cout << "grade:" << rui.grade << endl;
+	cout << "A:" << sizeof(A) << endl;
+	cout << "B:" << sizeof(B) << endl;
+	cout << "C:" << sizeof(C) << endl;
 	return 0;
 }
