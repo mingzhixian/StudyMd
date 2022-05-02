@@ -2,7 +2,7 @@
 
 一份简单明了的教程
 
-## linux
+## linux（太监中。。。）
 
 - [计算机方面的一些常识](./?art=linux/计算机方面的一些常识.md)
 - [Arch入教](./?art=linux/Arch入教.md)
