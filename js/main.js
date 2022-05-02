@@ -38,7 +38,7 @@ $.ajax({
 	$("#articleBody").html(converter.makeHtml(output));
 	directory();
 	SetImg();
-	//hljs.highlightAll();
+	hljs.highlightAll();
 }).fail(function () {
 	$.ajax({
 		url: "./README.md",
