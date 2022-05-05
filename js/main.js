@@ -23,36 +23,40 @@ function getTitle(variable) {
 //获取文章名
 var artUrl = decodeURIComponent(getQueryVariable("art"));
 
-//获取文章markdown文件
-$.ajax({
-	url: artUrl,
-	type: "get",
-}).done(function (output) {
-	//解析文章并填充文章名以及文章
-	var converter = new showdown.Converter({tables: true});
-	if (artUrl == "./README.md") {
-		$("#articleTitle").html(SiteTitle());
-	} else {
-		$("#articleTitle").html(getTitle(artUrl));
-	}
-	$("#articleBody").html(converter.makeHtml(output));
-	directory();
-	SetImg();
-	hljs.highlightAll();
-}).fail(function () {
+window.onload = function () {
+	//获取文章markdown文件
 	$.ajax({
-		url: "./README.md",
+		url: artUrl,
 		type: "get",
 	}).done(function (output) {
-		var converter = new showdown.Converter();
-		$("#articleTitle").html(SiteTitle());
+		//解析文章并填充文章名以及文章
+		var converter = new showdown.Converter({
+			tables: true
+		});
+		if (artUrl == "./README.md") {
+			$("#articleTitle").html(SiteTitle());
+		} else {
+			$("#articleTitle").html(getTitle(artUrl));
+		}
 		$("#articleBody").html(converter.makeHtml(output));
 		directory();
 		SetImg();
+		hljs.highlightAll();
 	}).fail(function () {
-		console.log("error,can not find article!");
+		$.ajax({
+			url: "./README.md",
+			type: "get",
+		}).done(function (output) {
+			var converter = new showdown.Converter();
+			$("#articleTitle").html(SiteTitle());
+			$("#articleBody").html(converter.makeHtml(output));
+			directory();
+			SetImg();
+		}).fail(function () {
+			console.log("error,can not find article!");
+		});
 	});
-});
+}
 
 //自动生成目录
 function directory() {
