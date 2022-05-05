@@ -6,28 +6,58 @@ using namespace std;
 class A
 {
 public:
-    void inc()
+    virtual void prt1()
     {
-        n++;
+        cout << "A1" << endl;
     }
-    static void prt()
+    virtual void prt2()
     {
-        cout << n << endl;
+        cout << "A2" << endl;
     }
-    static int n;
-};
-int A::n = 0;
-// 基类2
-class B : public A
-{
 };
 
+class B : A
+{
+public:
+    void prt1()
+    {
+        cout << "B1" << endl;
+    }
+    void prt2()
+    {
+        cout << "B2" << endl;
+    }
+    void prtB()
+    {
+        cout << "BBBBBB" << endl;
+    }
+};
+
+class C : A
+{
+public:
+    void prt1()
+    {
+        cout << "C1" << endl;
+    }
+    void prt2()
+    {
+        cout << "C2" << endl;
+    }
+    void prtC()
+    {
+        cout << "CCCCCC" << endl;
+    }
+};
 int main(void)
 {
-    B b;
-    b.prt();
-    b.inc();
-    b.inc();
-    b.prt();
+    A *b = (A *)new B;
+    A *c = (A *)new C;
+    b->prt1();
+    b->prt2();
+    // b->prtB();找不到
+    c->prt1();
+    c->prt2();
+    // c->prtC();找不到
     return 0;
 }
