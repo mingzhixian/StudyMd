@@ -6,19 +6,28 @@ using namespace std;
 class A
 {
 public:
-	A(int i)
-	{
-	}
-
-protected:
-	void prt()
-	{
-		cout << "A" << endl;
-	}
+    void inc()
+    {
+        n++;
+    }
+    static void prt()
+    {
+        cout << n << endl;
+    }
+    static int n;
+};
+int A::n = 0;
+// 基类2
+class B : public A
+{
 };
 
 int main(void)
 {
-	A a(3);
-	return 0;
+    B b;
+    b.prt();
+    b.inc();
+    b.inc();
+    b.prt();
+    return 0;
 }
