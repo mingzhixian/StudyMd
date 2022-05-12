@@ -1,39 +1,28 @@
 #include <iostream>
-
+#include <stdio.h>
+#include <string>
 using namespace std;
-
-class A
+template <>
+class A<double, int>
 {
 public:
- void virtual prt()
- {
-  cout << "打印A" << endl;
- }
+    double t1;
+    int t2;
 };
 
-class B : public A
+template <class T1>
+class A<double, T1>
 {
 public:
- void prt()
- {
-  cout << "打印B" << endl;
- }
-};
-
-class C : public B
-{
-public:
- void prt()
- {
-  cout << "打印C" << endl;
- }
+    double t1;
+    T1 t2;
 };
 
 int main(void)
 {
- A* a=(A*)new B();
- a->prt();
- C* c=(C*)new B();
- c->prt();
- return 0;
+    A a;
+    a.t1 = 3.45;
+    a.t2 = 6;
+    cout << a.t1 << "  " << a.t2 << endl;
+    return 0;
 }
