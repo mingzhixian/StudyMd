@@ -2,62 +2,38 @@
 
 using namespace std;
 
-// 基类1
 class A
 {
 public:
-    virtual void prt1()
-    {
-        cout << "A1" << endl;
-    }
-    virtual void prt2()
-    {
-        cout << "A2" << endl;
-    }
+ void virtual prt()
+ {
+  cout << "打印A" << endl;
+ }
 };
 
-class B : A
+class B : public A
 {
 public:
-    void prt1()
-    {
-        cout << "B1" << endl;
-    }
-    void prt2()
-    {
-        cout << "B2" << endl;
-    }
-    void prtB()
-    {
-        cout << "BBBBBB" << endl;
-    }
+ void prt()
+ {
+  cout << "打印B" << endl;
+ }
 };
 
-class C : A
+class C : public B
 {
 public:
-    void prt1()
-    {
-        cout << "C1" << endl;
-    }
-    void prt2()
-    {
-        cout << "C2" << endl;
-    }
-    void prtC()
-    {
-        cout << "CCCCCC" << endl;
-    }
+ void prt()
+ {
+  cout << "打印C" << endl;
+ }
 };
+
 int main(void)
 {
-    A *b = (A *)new B;
-    A *c = (A *)new C;
-    b->prt1();
-    b->prt2();
-    // b->prtB();找不到
-    c->prt1();
-    c->prt2();
-    // c->prtC();找不到
-    return 0;
+ A* a=(A*)new B();
+ a->prt();
+ C* c=(C*)new B();
+ c->prt();
+ return 0;
 }
