@@ -1,28 +1,41 @@
 #include <iostream>
-#include <stdio.h>
-#include <string>
+
 using namespace std;
-template <>
-class A<double, int>
+
+class A
 {
 public:
-    double t1;
-    int t2;
+    void virtual prt()
+    {
+        cout << "打印A" << endl;
+    }
 };
 
-template <class T1>
-class A<double, T1>
+class B : public A
 {
 public:
-    double t1;
-    T1 t2;
+    void prt()
+    {
+        cout << "打印B" << endl;
+    }
 };
 
 int main(void)
 {
-    A a;
-    a.t1 = 3.45;
-    a.t2 = 6;
-    cout << a.t1 << "  " << a.t2 << endl;
+    // static_cast不安全，转换后在进行读取派生类的东西会导致越界，因为实际对象中没有派生类的东西。类似于c中的强制转换，且一般更多使用c的强制转换。
+    B *a = static_cast<B *>(new A());
+    a->prt();
+    // const_cast转换为非静态
+    const int i = 2;
+    const int *p = &i;
+    // int *q=p;报错
+    int *q = (int *)p;
+    // int *q = const_cast<int *>(p);
+    cout << *q << "   ";
+    *q = 32;
+    cout << *q << endl;
+    // dynamic_cast是在运行时转换，如果不成功会返回null.
+    cout << dynamic_cast<B *>(new A()) << endl;
+    cout << dynamic_cast<A *>(new B()) << endl;
     return 0;
 }
